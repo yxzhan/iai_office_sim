@@ -1,21 +1,19 @@
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.5)
 project(iai_office_sim)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
-find_package(catkin REQUIRED COMPONENTS
-  gazebo_ros
-  
-)
-catkin_package(
-  DEPENDS 
-    gazebo_ros 
-     
-#  INCLUDE_DIRS 
-#    include
+# Enable C++11 (or later, if desired)
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# Find dependencies
+find_package(ament_cmake REQUIRED)
+find_package(gazebo_ros REQUIRED)
+find_package(PkgConfig REQUIRED)
+
+install(DIRECTORY launch maps models resource worlds
+  DESTINATION share/${PROJECT_NAME}/
 )
 
-include (FindPkgConfig)
-if (PKG_CONFIG_FOUND)
-  pkg_check_modules(GAZEBO gazebo)
-endif()
-
+ament_export_dependencies(gazebo_ros)
+ament_export_dependencies(PkgConfig)
+ament_package()
