@@ -18,6 +18,7 @@ def generate_launch_description():
     use_sim_time = LaunchConfiguration('use_sim_time', default='true')
     x_pose = LaunchConfiguration('x_pose', default='0.0')
     y_pose = LaunchConfiguration('y_pose', default='0.0')
+    gz_gui = LaunchConfiguration('gz_gui', default='false')
 
     world = os.path.join(
         get_package_share_directory('iai_office_sim'),
@@ -60,7 +61,7 @@ def generate_launch_description():
         executable='rviz2',
         name='rviz2',
         arguments=['-d', os.path.join(
-            get_package_share_directory('turtlebot3_gazebo'),
+            get_package_share_directory('iai_office_sim'),
             'rviz',
             'tb3_gazebo.rviz'
         )],
@@ -70,7 +71,8 @@ def generate_launch_description():
 
     # Add the commands to the launch description
     ld.add_action(gzserver_cmd)
-    ld.add_action(gzclient_cmd)
+    if gz_gui == 'true':
+        ld.add_action(gzclient_cmd)
     ld.add_action(robot_state_publisher_cmd)
     ld.add_action(spawn_turtlebot_cmd)
     ld.add_action(rviz_cmd)
