@@ -10,7 +10,7 @@ find_package(ament_cmake REQUIRED)
 find_package(gazebo_ros REQUIRED)
 find_package(PkgConfig REQUIRED)
 
-install(DIRECTORY launch maps models resource worlds
+install(DIRECTORY launch maps models resource worlds rviz
   DESTINATION share/${PROJECT_NAME}/
 )
 
