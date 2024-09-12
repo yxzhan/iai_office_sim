@@ -6,8 +6,9 @@ material IAI/OfficeWall
   {
     pass
     {
-      scene_blend colour_blend
-      depth_write off
+      ambient 1.0 1.0 1.0 1.0
+      diffuse 1.0 1.0 1.0 1.0
+      specular 0.01 0.01 0.01 1.0 2.0
 
       texture_unit
       {
@@ -25,8 +26,9 @@ material IAI/OfficeCarpet
   {
     pass
     {
-      scene_blend colour_blend
-      depth_write off
+      ambient 0.1 0.1 0.1 1.0
+      diffuse 0.8 0.8 0.8 1.0
+      specular 0.01 0.01 0.01 1.0 2.0
 
       texture_unit
       {
