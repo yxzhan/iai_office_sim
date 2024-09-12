@@ -2,10 +2,10 @@
 <sdf version="1.5">
   <world name="office_sim">
     <scene>
+      <shadows>false</shadows>
       <sky>
-        <clouds>
-          <speed>12</speed>
-        </clouds>
+        <clouds>false</clouds> <!-- Disable clouds -->
+        <time>12.0</time> 
       </sky>
     </scene>
     
